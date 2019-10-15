@@ -1,5 +1,4 @@
-a=1
-b=2
-for c in range(1,10,1):
-    a=a*b
-    print(a , end=' ')
+c=2
+for i in range(1,10):
+    q=c**(i-1)
+    print(q)
