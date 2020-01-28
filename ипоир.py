@@ -37,7 +37,7 @@ def move_func(s, t):
     dv_ydt3 = (- G * m1 * (y3 - y1) / ((x3 -x1)** 2 + (y3-y1)**2)**1.5
            - G * m2 * (y3 - y2) / ((x3 - x2)**2 +(y3 - y2)**2)**1.5)
      
-    return (dydt1,dv_ydt1,dydt1,dv_ydt1,
+    return (dxdt1,dv_xdt1,dydt1,dv_ydt1,
             dxdt2,dv_xdt2,dxdt2,dv_xdt2,
             dxdt3,dv_xdt3,dxdt3,dv_ydt3)
 
