@@ -101,3 +101,91 @@ for i in range (0, len(t), 1):
 ani = ArtistAnimation(fig, bodys, interval=50)
 plt.axis('equal')
 ani.save('CgmjhFinal.gif')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a = 4*(10**6)
+b = 3*(10**6)
+c = 2*(10**6)
+d = 1*(10**6)
+
+x10 = -0.008
+vx10 = -(np.sin(np.pi/4)*a)
+y10 = 0.008   
+vy10 = -(np.sin(np.pi/4)*a)
+    
+x20 = 0.008
+vx20 = -(np.sin(np.pi/4)*b)
+y20 = 0.008  
+vy20 = (np.sin(np.pi/4)*b)
+    
+x30 = -0.008
+vx30 = (np.sin(np.pi/4)*c)
+y30 = -0.008
+vy30 = -(np.sin(np.pi/4)*c)
+
+x40 = 0.008
+vx40 = (np.sin(np.pi/4)*d)
+y40 = -0.008
+vy40 = (np.sin(np.pi/4)*d)
+    
+s0 = (x10, vx10, y10, vy10,
+      x20, vx20, y20, vy20,
+      x30, vx30, y30, vy30,
+      x40, vx40, y40, vy40)
+
+
+m1 = 1.1 * 10**(-27)
+q1 = 1.1 * 10**(-13)
+
+
+m2 = 1.1 * 10**(-27)
+q2 = 1.1 * 10**(-13)
+
+
+m3 = 1.1 * 10**(-27)
+q3 = 1.1 * 10**(-13)
+
+
+m4 = 1.1 * 10**(-27)
+q4 = 1.1 * 10**(-13)
+
+sol = odeint(func, s0, t)
+
+
+fig = plt.figure()
+bodys = []
+
+for i in range (0, len(t), 1):
+    body1, = plt.plot(sol[:i, 0], sol[:i, 2], '-', color ='r')
+    body1_line, = plt.plot(sol[i, 0], sol[i, 2], 'o', color = 'r')
+    
+    body2, = plt.plot(sol[:i,4], sol[:i,6], '-', color ='g')
+    body2_line, = plt.plot(sol[i,4], sol[i, 6], 'o', color = 'g')
+     
+    body3, = plt.plot(sol[:i,8], sol[:i,10], '-', color ='b') 
+    body3_line, = plt.plot(sol[i,8], sol[i,10], 'o', color = 'b')
+    
+    body4 = plt.plot(sol[:i,], sol[:i], '-', color ='y')
+    body_line, = plt.plot(sol[i,], sol[i,], 'o', color = 'y')
+    
+    bodys.append([body1, body1_line, body2, body2_line, body3, body3_line])
+    
+ani = ArtistAnimation(fig, bodys, interval=50)
+plt.axis('equal')
+ani.save('CgmjhFinal.gif')
